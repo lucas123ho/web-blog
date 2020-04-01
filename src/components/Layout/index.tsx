@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 import { Col } from "react-bootstrap";
 
 import { Container, Content, Row } from "./styles";
 import Header from "../Header";
 import Footer from "../Footer";
 
-export default function Layout({ children }) {
+export default function Layout({ children }: ComponentProps<"div">) {
   return (
     <Container>
       <Header />

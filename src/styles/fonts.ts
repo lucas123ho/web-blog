@@ -11,7 +11,7 @@ const fonts = {
     lineHeight: {
         extraSmall: '1.35rem',
         small: "1.8rem",
-        normal: "2.4rem",
+        normal: "2.56rem",
         medium: "3.1995rem",
         big: "4.2645rem",
         extraBig: "5.685rem"

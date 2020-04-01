@@ -9,7 +9,7 @@ export default function Header() {
     <ContainerHeader fluid>
       <Container>
         <Content>
-          <Logo to="/"> holy <span>Javascript</span> </Logo>
+          <Logo to="/"> holy <span>Javascript!</span> </Logo>
         </Content>
       </Container>
     </ContainerHeader>
