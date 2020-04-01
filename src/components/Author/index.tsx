@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, Photo, ContainerText } from "./styles";
 
-interface AuthorProps {
+export interface AuthorProps {
   image?: string;
   name: string;
   office: string;

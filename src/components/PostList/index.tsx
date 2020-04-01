@@ -1,32 +1,42 @@
 import React from "react";
 
 import { Container, Title, Cover, Description, Info } from "./styles";
-import Author from "src/components/Author";
+import Author, {AuthorProps} from "src/components/Author";
 
-export default function PostList() {
+interface PostLisProps {
+  title: string;
+  author: AuthorProps;
+  image?: string;
+  description: string;
+  category?: string;
+  tags?: string;
+  
+}
+
+export default function PostList({ 
+  title,
+  author,
+  image,
+  description,
+  category,
+  tags
+}: PostLisProps) {
   return (
     <Container to="/">
-      <Title>Minha primeiro aplicativo usando React Native</Title>
+      <Title>{title}</Title>
       <Author
-        image="https://assets.entrepreneur.com/content/3x2/2000/20190502194704-ent19-june-editorsnote.jpeg"
-        name="Lucas Santos Lima"
-        office="Desenvolvedor Mobile"
+        image={author?.image}
+        name={author?.name}
+        office={author?.office}
       />
       <Cover
         style={{
-          backgroundImage:
-            "url(https://assets.materialup.com/uploads/24c05883-b595-447b-99bb-d764ffe43d50/preview.png)"
+          backgroundImage: `url(${image})`
         }}
       />
-      <Description>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla
-      </Description>
+      <Description>{description}</Description>
       <Info>
-        <span>Categoria: </span> React Native | <span>Tags: </span> tutorial, firstapp
+        <span>Categoria: </span> {category} | <span>Tags: </span> {tags}
       </Info>
     </Container>
   );

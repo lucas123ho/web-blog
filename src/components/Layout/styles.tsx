@@ -5,7 +5,7 @@ export const Container = styled.div``;
 
 export const Content = styled(C)`
     padding-top: calc(64px + 65px);
-    /* min-height: 100vh; */
+    min-height: 100vh;
 `
 
 export const Row = styled(R)`
