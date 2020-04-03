@@ -4,9 +4,6 @@ import fonts from './fonts';
 import colors from './colors';
 
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
-
-
     html {
         font-size: 62.5%;
 
