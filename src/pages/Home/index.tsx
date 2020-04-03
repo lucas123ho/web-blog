@@ -28,7 +28,7 @@ export default function Home() {
       setPosts(posts);
     }
     getPosts();
-  });
+  }, []);
 
   return (
     <>
