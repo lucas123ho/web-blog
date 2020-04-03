@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // import { Container } from './styles';
 import PostList from "src/components/PostList";
 import api from "src/services/api";
+import { url as apiURL } from "src/api.config";
 
 interface Tag {
   name: string;
@@ -12,11 +13,23 @@ interface Category {
   name: string;
 }
 
+interface Image {
+  url: string
+}
+
+interface Author {
+  name: string;
+  office: string;
+  image: Image;
+}
+
 interface Post {
   tags: Tag[];
   title: string;
   description: string;
   category: Category;
+  image: Image;
+  author: Author;
 }
 
 export default function Home() {
@@ -24,7 +37,7 @@ export default function Home() {
 
   useEffect(() => {
     async function getPosts() {
-      const { data: posts } = await api.get("/posts");
+      const { data: posts } = await api.get("/posts?_sort=createdAt:DESC");
       setPosts(posts);
     }
     getPosts();
@@ -37,12 +50,11 @@ export default function Home() {
           key={post.title}
           title={post.title}
           author={{
-            image:
-              "https://assets.entrepreneur.com/content/3x2/2000/20190502194704-ent19-june-editorsnote.jpeg",
-            name: "Lucas Santos Lima",
-            office: "Desenvolvedor React Native"
+            image: `${apiURL}${post.author.image.url}`,
+            name: post.author.name,
+            office: post.author.office
           }}
-          image="https://s3.amazonaws.com/creativetim_bucket/products/163/thumb/opt_arn_thumbnail.jpg?1559925384"
+          image={`${apiURL}${post.image.url}`}
           description={post.description}
           category={post.category.name}
           tags={post.tags.map(tag => tag.name).join(', ')}

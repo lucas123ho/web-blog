@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+import { url } from '../api.config';
+
 const api = axios.create({
-    baseURL: "https://api-blog-lucas.herokuapp.com"
+    baseURL: url
 });
 
 export default api;
