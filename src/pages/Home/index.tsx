@@ -34,6 +34,7 @@ export default function Home() {
     <>
       {posts.map(post => (
         <PostList
+          key={post.title}
           title={post.title}
           author={{
             image:
